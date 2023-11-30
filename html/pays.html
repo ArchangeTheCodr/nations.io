@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nations.io</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container-fluid bg-dark text-white">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h1 class="my-3 px-4 ">Nations.IO</h1>
+                </div>
+                <div class="me-5 my-2">
+                    <nav class="navbar">
+                        <ul class="nav">
+                            <li class="list-item">
+                                <a href="/home/lucifer/Projet/portfolio/nations.io/index.html" class="nav-link text-white">Acceuil</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="nav-link text-success">Pays</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="" class="nav-link text-white">Continents</a>
+                            </li>
+                            <li class="list-item">
+                                <a href="" class="btn btn-success px-4">Jouer</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container border-bottom mb-5">
+            <div class="row d-flex justify-content-between py-3 px-3">
+                <div class="col-2">
+                    <span class="btn border filter">Filtre</span>
+
+                    <div class="row  bg-white shadow toggle-filter my-2 py-1">
+                       <div class="col w-100">
+                            <div class="container-selector my-3">
+                                <label for="select-language">Language </label>
+                                <select class="mx-25 form-control" name="select-language" id="select-language">
+                                    <option value="fr">francais euh</option>
+                                    <option value="en">en</option>
+                                </select>
+                            </div>
+                            <div class="container-selector">
+                                <label for="select-currency">Currency </label>
+                                <select class="mx-25 form-control" name="select-currency" id="select-currency">
+                                    <option value="fr">Euro eu</option>
+                                    <option value="en">American dollar</option>
+                                </select>
+                            </div>
+                            <div class="container-fluid text-end my-2">
+                                <button class="btn btn-outline-success apply-btn">Apply</button>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 py-xs-5">
+                    <input type="text" name="search-bar" id="search-bar" placeholder="search" class="form-control w-100">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="">
+            <div class="container ">
+                <div class="row" id="country-container">
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <script src="../javascript/main.js"></script>
+    <script src="../javascript/creator.js"></script>
+</body>
+</html>

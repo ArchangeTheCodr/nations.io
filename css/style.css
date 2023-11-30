@@ -1,0 +1,27 @@
+.hero{
+    width: 99,2%;
+    height: 530px;
+    padding: 1%;
+}
+
+.hero-col{
+    margin-top: 10vh;
+    margin-left: 8vh;
+}
+
+.opa-hero{
+    opacity: 0;
+    animation: appear 3s ease-in-out;
+    opacity: 1;
+}
+
+@keyframes appear {
+    from{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+.filter:hover{
+    background-color: #212529;
+    opacity: 0.8;
+    color: #f8f9fa;
+}
