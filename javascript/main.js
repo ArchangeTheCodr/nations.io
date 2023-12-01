@@ -12,5 +12,4 @@ $(document).ready(function(){
     $('.apply-btn').on('click', () => {
         toggle_filter()
     })
-
 })
