@@ -4,6 +4,7 @@ $(document).ready(function(){
         create_country('Blackjack OBS', '/home/lucifer/Images/Captures d’écran/img.png', '667 ekip mms ldo nrm');   
     }
 
+    //animation d'affichage du panneau de filtre
     $('.toggle-filter').hide()
     $('.filter').on('click', () => {
         toggle_filter()
@@ -12,8 +13,4 @@ $(document).ready(function(){
         toggle_filter()
     })
 
-
 })
-
-
-
