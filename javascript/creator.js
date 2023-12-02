@@ -12,6 +12,7 @@ function create_country(name, img, alt){
     col.addClass('col-xs-4 col-sm-4 col-md-3  my-1');
     card.addClass('card border shadow hover-animation');
     para.addClass('card-text py-2 text-center');
+    image.addClass('img-responsive');
 
     // affectation des parametres a leurs valeurs respectives
     image.attr({
@@ -76,4 +77,61 @@ function fill_language_selector(language) {
     opt.text(language);
 
     select_language.append(opt);
+}
+
+
+// appel a l'api, pour emplir les selects;
+// retrait des doublons et trie des donnees en ordre alphabetique
+// parametres : select === le select a remplir (currencies/languages)
+//              newArray === array qui contiendra les donnees json apres conversion pour faciliter leurs manipulations
+//              parameter === parametre des boucles foreach (language/currency)
+//              varBeforePush === var qui contiedra les donness avant qu'elles soit push dans newArray
+//              pushedData === les donnees quiseront push dans l'array
+//              uniArray === array contenant les donnes sans doublons et trier
+//              fill_method === function de remplissage a appelle en fonction du select
+
+function request_fill_language_select() {
+    fetch('https://restcountries.com/v3.1/all?fields=languages')
+    .then(response => response.json())
+    .then(languages => {
+
+        let languagesArr = [];
+
+        languages.forEach(language => {
+            let lang = Object.values(language.languages)[0];
+            if (lang != undefined) {
+                languagesArr.push(lang)
+            }
+        });
+        
+        let uniLanguages = [...new Set(languagesArr)]
+        uniLanguages.sort()
+        uniLanguages.forEach(language => {
+            fill_language_selector(language); 
+        });
+    });
+}
+
+
+function request_fill_currency_select() {
+    fetch('https://restcountries.com/v3.1/all?fields=currencies')
+        .then(response => response.json())
+        .then(countries => {
+
+            let currencies = [];
+
+            countries.forEach(country => {
+                let currency = Object.values(country.currencies)[0];
+                if (currency != undefined) {
+                    currencies.push(currency.name + ' ' + currency.symbol);
+                }
+            });
+            
+            let uniCurrencies = [...new Set(currencies)]
+            uniCurrencies.sort()
+            uniCurrencies.forEach(currency => {
+                fill_currency_selector(currency); 
+            });
+        })
+    ;
 }
