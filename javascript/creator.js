@@ -112,7 +112,7 @@ function request_fill_language_select() {
     });
 }
 
-
+var currencies_code = [];
 function request_fill_currency_select() {
     fetch('https://restcountries.com/v3.1/all?fields=currencies')
         .then(response => response.json())
@@ -122,11 +122,11 @@ function request_fill_currency_select() {
 
             countries.forEach(country => {
                 let currency = Object.values(country.currencies)[0];
+                currencies_code.push(country.currencies)
                 if (currency != undefined) {
-                    currencies.push(currency.name + ' ' + currency.symbol);
+                    currencies.push(currency.name);
                 }
             });
-            
             let uniCurrencies = [...new Set(currencies)]
             uniCurrencies.sort()
             uniCurrencies.forEach(currency => {
@@ -134,4 +134,57 @@ function request_fill_currency_select() {
             });
         })
     ;
+}
+
+//function de filtre des countries
+function filter(){
+
+    // recuperation des options du select_currency
+    let select_currency = document.querySelector('#select-currency');
+    // recuperation des options du select_language
+    let select_language = document.querySelector('#select-language');
+    //variable pour le code qui permettra l'appel a l'api
+    let  currency_code;
+
+    $('.apply-btn').on('click', () => {
+
+        // recuperation du container des countries
+        let country_container = document.querySelector('#country-container');
+        // vidage du container afin d'afficher les resultats du filtre
+        while (country_container.firstChild) {
+            country_container.removeChild(country_container.firstChild);
+        }
+
+        //recherche de correspondance entre la currency dans le currency_select
+        // et celle du json des currencies afin de recuperer le code de la currency
+        for (let i in currencies_code) {
+            for (let a in currencies_code[i]) {
+                if(select_currency.value == currencies_code[i][a].name){
+                    currency_code = a;
+                    break;
+                }
+            }
+        }
+        //appel a l'api et creation des countries retournees apres le filtre
+        fetch('https://restcountries.com/v3.1/currency/' + currency_code + '?fields=name,flags,languages')
+            .then(response => response.json())
+            .then(countries => {
+                countries.forEach(country => {
+                    //verification pour le filtre sur les languages
+                    for(let lang in country.languages){
+                        if(select_language.value === country.languages[lang]){
+                            create_country(country.name.common, country.flags.svg, country.flags.alt);
+                            break;
+                        }
+
+                    }
+                })
+
+                // si aucun resultat n'est renvoyes alors on affiche le message dans le h2
+                let h2 = $('h2');
+                if(!country_container.firstChild){
+                    h2.text('No result for parameters : ' + select_language.value + ' et ' + select_currency.value );
+                }
+            });
+    })
 }

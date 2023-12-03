@@ -1,17 +1,7 @@
 $(document).ready(function(){
 
-    fetch('https://restcountries.com/v3.1/all?fields=name,flags')
-        .then(response => response.json())
-        .then(response => response.sort())
-        .then(countries => {
-            // console.table(countries.sort());
-            countries.forEach(country => {
-                create_country(country.name.common, country.flags.svg, 'flag ' + country.name.common);
-            });
-        })
-    ;
-
-    
+    load_country_container();
+    filter();
         
     request_fill_language_select();
     request_fill_currency_select();
