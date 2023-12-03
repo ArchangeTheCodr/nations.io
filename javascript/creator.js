@@ -136,6 +136,8 @@ function request_fill_currency_select() {
     ;
 }
 
+
+var country_container = document.querySelector('#country-container')
 //function de filtre des countries
 function filter(){
 
@@ -147,14 +149,11 @@ function filter(){
     let  currency_code;
 
     $('.apply-btn').on('click', () => {
-
-        // recuperation du container des countries
+            // vidage du container afin d'afficher les resultats du filtre
         let country_container = document.querySelector('#country-container');
-        // vidage du container afin d'afficher les resultats du filtre
         while (country_container.firstChild) {
             country_container.removeChild(country_container.firstChild);
         }
-
         //recherche de correspondance entre la currency dans le currency_select
         // et celle du json des currencies afin de recuperer le code de la currency
         for (let i in currencies_code) {
@@ -183,7 +182,10 @@ function filter(){
                 // si aucun resultat n'est renvoyes alors on affiche le message dans le h2
                 let h2 = $('h2');
                 if(!country_container.firstChild){
-                    h2.text('No result for parameters : ' + select_language.value + ' et ' + select_currency.value );
+                    h2.text('No result for parameters : ' + select_language.value + ' and ' + select_currency.value );
+                }else{
+                     h2.text('result for parameters : ' + select_language.value + ' and ' + select_currency.value );
+
                 }
             });
     })

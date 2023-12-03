@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
+    $('#search-bar').val('');
     load_country_container();
     filter();
-        
+    search();
     request_fill_language_select();
     request_fill_currency_select();
 
