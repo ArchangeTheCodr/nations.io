@@ -1,0 +1,42 @@
+@media screen and (max-width : 630px){
+    .col-6{
+        max-width : 300px;
+        margin-left: 30px;
+    }
+    .hero{
+        width: auto;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width : 1120px){
+    .col-3{
+        width: 30%;
+    }
+}
+
+
+@media screen and (max-width : 940px){
+    .col-3{
+        width: 45%;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .hero{
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (max-width : 430px){
+    .col-3{
+        width: 80%;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .hero{
+        width: auto;
+        height: auto;
+    }
+}
