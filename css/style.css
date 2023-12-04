@@ -31,3 +31,11 @@
 .end{
     height : 50px;
 }
+.continent{
+    position: absolute;
+    background-color: #ffee05;
+}
+
+.playroom{
+height: 618px;
+}
