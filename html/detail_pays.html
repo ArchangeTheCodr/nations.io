@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nations.io</title>
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/detail_pays.min.css" type="text/css">
 </head>
 <body>
     <header>
@@ -18,16 +19,25 @@
                     <nav class="navbar">
                         <ul class="nav">
                             <li class="list-item">
-                                <a href="index.html" class="nav-link text-white">Acceuil</a>
+                                <a href="../index.html" class="nav-link text-success">Home</a>
                             </li>
                             <li class="list-item">
-                                <a href="html/pays.html" class="nav-link text-white">Pays</a>
+                                <a href="pays.html" class="nav-link text-white">Countries</a>
                             </li>
                             <li class="list-item">
-                                <a href="" class="nav-link text-white">Continents</a>
+                                <span class="nav-link text-white continent-toggle">Continents</span>
+                                <div class="continent">
+                                    <ul class="row bg-light text-dark  px-2 shadow border">
+                                        <li class="btn btn-outline-success my-2 ">Africa</li>
+                                        <li class="btn btn-outline-success my-2">America</li>
+                                        <li class="btn btn-outline-success my-2">Asia</li>
+                                        <li class="btn btn-outline-success my-2">Europa</li>
+                                        <li class="btn btn-outline-success my-2">Oceania</li>
+                                    </ul>
+                                </div>
                             </li>
                             <li class="list-item">
-                                <a href="" class="btn btn-success px-4">Jouer</a>
+                                <a href="playroom.html" class="btn btn-success px-4">Play !</a>
                             </li>
                         </ul>
                     </nav>
@@ -36,10 +46,118 @@
         </div>
     </header>
     <main>
-        
+        <section>
+            <div class="container  mt-5">
+                <div class="row">
+                    <div class="col-7 border shadow big-block">
+                        <div class="row">
+                            <div class="col">
+                                <h1> Nom officiel du pays</h1>
+                                <img src="/home/lucifer/Images/Captures d’écran/img.png" alt="drapeau nom officiel pays" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row  d-flex justify-content-around mt-5">
+                            <div class="col-3 border h-50 shadow">
+                                <p>
+                                    <b>Localisation</b>
+                                </p>
+                                <ul>
+                                    <li>Continents</li>
+                                    <li>Sous-region</li>
+                                    <li>Timezon</li>
+                                </ul>
+                            </div>
+                            <div class="col-3 border h-50 shadow">
+                               <p>
+                                    <b>Frontieres</b>
+                                </p>
+                                <ul>
+                                    <li>Pays 1</li>
+                                    <li>Pays 2</li>
+                                    <li>Pays 3</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                         <div class="row  d-flex justify-content-around mt-5">
+                            <div class="col-3 border h-50 shadow">
+                                <p>
+                                    <b>Capital :</b> capital du pays
+                                </p>
+                                <p>
+                                    <b>Demonym</b>
+                                    <ul>
+                                        <li>Appelation1</li>
+                                        <li>Appelation 2</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-3 border h-50 shadow">
+                              <p>
+                                    <b>Population :</b> nbre habitant du pays
+                                </p>
+                                <p>
+                                    <b>Langue</b>
+                                    <ul>
+                                        <li>langue 1</li>
+                                        <li>langue 2 2</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                         <div class="row  d-flex justify-content-around mt-5 mb-3">
+                            <div class="col-3 border h-50 shadow">
+                                <p>
+                                    <b>Phone prefixe :</b> +242
+                                </p>
+                                <p>
+                                    <b>Devise</b>
+                                    <ul>
+                                        <li>Nom : nom de la devise</li>
+                                        <li>Symbol : symbol de la devise 2</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-3 border h-50 shadow">
+                                <p>
+                                    <b>country name in other languages:</b>
+                                    <ul>
+                                        <li>Francais : valeur</li>
+                                        <li>Japonais : valeur</li>
+                                        <li>Espagnol : valeur</li>
+                                        <li>Allemand : valeur</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4 mx-2  border shadow ">
+                        <div class="row my-5 d-flex justify-content-center">
+                            <div class="col-10 border shadow">
+                                <p> Ecusson du pays</p>
+                                <img src="/home/lucifer/Images/Captures d’écran/img.png" alt="ecusson nom pays" class="img-fluid">
+                            </div>
+                            <div class="col-10 mt-3 bg-success py-4">
+                                <a href="" class="btn btn-success w-100"> <b> Ouvrir la carte</b></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+
+    <footer class="text-center bg-dark end mt-5">
+        <div class="container-fluid bg-dark h-50 text-white mb-0">
+            <p> Copyright Nations.io 2023 | archangeTheCodr </p>
+        </div>
+    </footer>
     <script src="../jquery/jquery-3.7.1.js" ></script>
     <script src="../javascript/main.js" ></script>
-     <script src="../javascript/creator.js"></script>
+    <script src="../javascript/creator.js"></script>
+    <script src="../javascript/creator2.js"></script>
 </body>
 </html>

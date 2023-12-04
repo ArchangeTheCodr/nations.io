@@ -1,0 +1,33 @@
+
+@media screen and (max-width : 990px) {
+    .col-7{
+        width : 95%;
+    }
+
+    .col-4{
+        margin-top: 15px;
+        width : 80%;
+    }
+
+    .col-3{
+        width : 30%;
+    }
+
+}
+
+@media screen and (max-width : 770px) {
+    .col-3{
+        width : 40%;
+    }
+
+    .col-4{
+        margin-top: 15px;
+        width : 80%;
+    }
+}
+
+@media screen and (max-width : 575px){
+    .col-7{
+        width : 100%;
+    }
+}
