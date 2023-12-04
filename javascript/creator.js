@@ -8,7 +8,7 @@ function create_country(name, img, alt){
     let para = $('<p></p>');
 
     // ajout de classes bootstrap aux elements precedement creer
-    col.addClass('col-xs-4 col-sm-4 col-md-3  my-1');
+    col.addClass('col-3 my-1');
     card.addClass('card border shadow hover-animation');
     para.addClass('card-text py-2 text-center');
     image.addClass('img-responsive');
