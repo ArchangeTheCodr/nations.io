@@ -61,6 +61,9 @@ function search(){
             })
             //fonction a executer en cas d'erreur
             .catch(error => {
+                while (country_container.firstChild) {
+                    country_container.removeChild(country_container.firstChild);
+                }
                 $('#country-container').append($('<h5></h5>').text('this country doesn\'t exist'));
                 console.log(error);
             })

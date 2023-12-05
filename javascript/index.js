@@ -13,3 +13,22 @@ function toggle_continents(){
 }
 
 toggle_continents();
+//
+//
+//var selected_continent;
+//var countries_by_continent_array;
+//function countries_by_continent(continent){
+//    fetch('https://restcountries.com/v3.1/region/' + continent + '?fields=name,flags')
+//        .then(response => response.json())
+//        .then(countries => {
+//            countries.forEach(country => {
+//                countries_by_continent_array.push(country);
+//            })
+//        })
+//    ;
+//}
+//
+//$('.africa').on('click', () => {
+//    selected_continent =  $('.africa').text();
+//    window.location.href('../html/continents.html');
+//})
