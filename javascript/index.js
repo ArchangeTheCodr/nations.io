@@ -32,3 +32,7 @@ toggle_continents();
 //    selected_continent =  $('.africa').text();
 //    window.location.href('../html/continents.html');
 //})
+
+ $('#burger').on('click', () => {
+            $('#responsive').slideToggle();
+ })

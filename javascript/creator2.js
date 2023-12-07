@@ -75,3 +75,9 @@ function search(){
     })
 
 }
+
+function make_responsive_navbar(){
+     $('#burger').on('click', () => {
+            $('#responsive').slideToggle();
+ })
+}

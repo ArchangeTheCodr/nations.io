@@ -1,0 +1,26 @@
+
+#burger{
+    display: none;
+    cursor: pointer;
+}
+
+.continent-toggle{
+    cursor: pointer;
+}
+
+@media screen and (max-width : 662px){
+    #burger{
+        display: block;
+    }
+    #responsive{
+        display: none;
+        position : absolute;
+        top: 50px;
+        right: 0px;
+        background-color: black;
+    }
+    .px-4{
+        margin-left: 10px;
+        margin-bottom: 4px;
+    }
+}

@@ -23,4 +23,6 @@ $(document).ready(function(){
 
    //appel a la fonction d'animation du panneau des continents
    toggle_continents();
+
+   make_responsive_navbar();
 })
