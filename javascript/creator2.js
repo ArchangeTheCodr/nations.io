@@ -43,7 +43,7 @@ function search(){
     //traitement a effectuer a chaque fois qu'une nouvelle lettres est taper dans le champ de recherche
     search_bar.on('input', () => {
         let country_container = document.querySelector('#country-container');
-        h2.text('Result : ')
+        h2.text('Results : ')
         // vidage du container afin d'afficher les resultats du filtre
         while (country_container.firstChild) {
             country_container.removeChild(country_container.firstChild);

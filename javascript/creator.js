@@ -124,7 +124,6 @@ function request_fill_currency_select() {
 var country_container = document.querySelector('#country-container')
 //function de filtre des countries
 function filter(){
-
     // recuperation des options du select_currency
     let select_currency = document.querySelector('#select-currency');
     // recuperation des options du select_language
@@ -133,7 +132,7 @@ function filter(){
     let  currency_code;
 
     $('.apply-btn').on('click', () => {
-            // vidage du container afin d'afficher les resultats du filtre
+        // vidage du container afin d'afficher les resultats du filtre
         let country_container = document.querySelector('#country-container');
         while (country_container.firstChild) {
             country_container.removeChild(country_container.firstChild);
@@ -148,29 +147,70 @@ function filter(){
                 }
             }
         }
-        //appel a l'api et creation des countries retournees apres le filtre
-        fetch('https://restcountries.com/v3.1/currency/' + currency_code + '?fields=name,flags,languages')
-            .then(response => response.json())
-            .then(countries => {
-                countries.forEach(country => {
-                    //verification pour le filtre sur les languages
-                    for(let lang in country.languages){
-                        if(select_language.value === country.languages[lang]){
-                            create_country(country.name.common, country.flags.svg, country.flags.alt);
-                            break;
+
+        //Verification qu'une currency a bien ete selectionne
+        //filtre dans le cas ou juste la currency a ete selectionne
+        if(currency_code !== undefined){
+            //appel a l'api et creation des countries retournees apres le filtre
+            fetch('https://restcountries.com/v3.1/currency/' + currency_code + '?fields=name,flags,languages')
+                .then(response => response.json())
+                .then(countries => {
+                    countries.forEach(country => {
+                        //verification pour le filtre sur les languages
+                        for(let lang in country.languages){
+                            if(select_language.value === country.languages[lang]){
+                                create_country(country.name.common, country.flags.svg, country.flags.alt);
+                                break;
+                            }else{
+                                create_country(country.name.common, country.flags.svg, country.flags.alt);
+                            }
+
+                        }
+                    })
+
+                    // si aucun resultat n'est renvoyes alors on affiche le message dans le h2
+                    let h2 = $('h2');
+                    if(!country_container.firstChild){
+                        if(select_language.value !== 'Select a language'){
+                            h2.text('No results for parameters : ' + select_language.value + ' and ' + select_currency.value );
+                        }else{
+                            h2.text('No results for parameters : ' +  select_currency.value );
+                        }
+                    }else{
+                        //Message a renvoyes en fonction du champ sur lequel le filtre est effectuer
+                        if((select_language.value !== 'Select a language') && (select_currency.value == 'Select a currency')){
+                            h2.text('results for parameter : ' + select_language.value );
+                        }else if((select_language.value == 'Select a language') && (select_currency.value !== 'Select a currency')){
+                                h2.text('results for parameter : ' + select_currency.value );
+                        }else{
+                            h2.text('results for parameters : ' + select_language.value + ' and ' + select_currency.value );
                         }
 
                     }
                 })
+            ;
+        } else{
+        //Filtre dans le cas ou juste la language a ete selectionne
+            if(select_language.value !== 'Select a language'){
+                fetch('https://restcountries.com/v3.1/lang/' + select_language.value + '?fields=name,flags')
+                    .then(response => response.json())
+                    .then(countries => {
+                        countries.forEach(country => {
+                            create_country(country.name.common, country.flags.svg, country.flags.alt);
+                        })
 
-                // si aucun resultat n'est renvoyes alors on affiche le message dans le h2
-                let h2 = $('h2');
-                if(!country_container.firstChild){
-                    h2.text('No result for parameters : ' + select_language.value + ' and ' + select_currency.value );
-                }else{
-                     h2.text('result for parameters : ' + select_language.value + ' and ' + select_currency.value );
+                        // si aucun resultat n'est renvoyes alors on affiche le message dans le h2
+                        let h2 = $('h2');
+                        if(!country_container.firstChild){
+                            h2.text('No results for parameters : ' + select_language.value);
+                        }else{
+                            h2.text('results for parameters : ' + select_language.value);
+                        }
+                    })
+                ;
+            }
+        }
 
-                }
-            });
+
     })
 }
